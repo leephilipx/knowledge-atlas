@@ -1,0 +1,9 @@
+boto3==1.40.1
+botocore==1.40.1
+fastapi==0.115.8
+langchain==1.0.5
+langchain-google-genai==3.0.1
+pydantic>=2.10.4
+python-dotenv==1.2.1
+uvicorn==0.29.0
+requests==2.32.4

@@ -1,0 +1,27 @@
+CREATE TABLE entries (
+    id TEXT PRIMARY KEY,       -- UUID
+    theme TEXT,                -- Current Theme
+    entry_date TEXT,
+    ...
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE entry_history (
+    -- Composite Primary Key: A specific entry in a specific month
+    snapshot_month TEXT,       -- e.g., "2023-10"
+    entry_id TEXT,             -- Links back to entries.id
+    
+    -- Snapshot Data
+    theme TEXT,                -- The theme it had during that month
+    summary_caption TEXT,      -- In case you re-summarize later
+    
+    PRIMARY KEY (snapshot_month, entry_id),
+    FOREIGN KEY (entry_id) REFERENCES entries(id)
+);
+
+CREATE TABLE clustering_runs (
+    month_id TEXT PRIMARY KEY, -- e.g., "2023-10"
+    html_file_path TEXT,       -- "visualizations/cluster_2023_10.html"
+    total_clusters INTEGER,
+    run_date TIMESTAMP
+);

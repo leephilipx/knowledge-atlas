@@ -1,0 +1,4 @@
+import os
+
+DB_REPOSITORY_FILE = os.getenv('DB_REPOSITORY_FILE')
+DB_HISTORICAL_FILE = os.getenv('DB_HISTORICAL_FILE')
